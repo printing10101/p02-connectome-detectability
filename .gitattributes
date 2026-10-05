@@ -1,0 +1,8 @@
+# Artifact integrity: this repository publishes a SHA256 manifest and frozen
+# criteria files whose hashes are recorded inside the verdict JSONs that they
+# govern. Any end-of-line conversion would change file bytes and break both
+# checks, so line-ending conversion is disabled repository-wide.
+#
+# With `-text`, Git stores and checks out exactly the bytes it was given, on
+# every platform. Do not replace this with `* text=auto`.
+* -text
