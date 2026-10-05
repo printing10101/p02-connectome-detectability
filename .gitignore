@@ -14,6 +14,8 @@ __pycache__/
 Thumbs.db
 
 # LaTeX 中间产物（保留 .tex / .pdf / .bbl）
+# 注：*.log 亦覆盖工件包内作者运行期的控制台日志——那类日志含本机绝对路径，
+#     不随包发布；MANIFEST 同样排除 *.log，以保证清单与发布范围严格一致。
 *.aux
 *.log
 *.out

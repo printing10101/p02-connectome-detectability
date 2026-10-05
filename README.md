@@ -26,8 +26,12 @@ cd P02_果蝇B_成果包_v2
 sha256sum -c MANIFEST.sha256
 ```
 
-All 191 entries should report `OK`. The manifest deliberately excludes two kinds of non-artifact
-paths: tool-state directories (`.mimosa/`) and bytecode caches (`__pycache__/`). If you prefer Python:
+All 189 entries should report `OK`. The manifest deliberately excludes three kinds of non-artifact
+paths, so that the list and the released tree agree exactly: tool-state directories (`.mimosa/`),
+bytecode caches (`__pycache__/`), and the author's run-time console logs (`*.log`), the last of which
+contain machine-local absolute paths and are therefore not released. Line-ending conversion is
+disabled repository-wide via `.gitattributes` (`* -text`), so the bytes you clone are the bytes that
+were checksummed. If you prefer Python:
 
 ```bash
 python - <<'PY'

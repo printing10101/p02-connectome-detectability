@@ -104,4 +104,8 @@ B1b 的 `directed_minus_sham` 为 +1.0(7/10 种子同向),已触及 `B1B_DIRECTE
 
 - 数据与日志按 CC-BY-4.0 发布;代码按 MIT 发布(详见 `zenodo.json` 的 notes)。
 - 引用本包时请同时给出论文 DOI 与本包 DOI,并注明快照哈希。
-- `MANIFEST.sha256` 覆盖全部已发布文件,不含工具状态目录(`.mimosa/`)与字节码缓存(`__pycache__/`)。
+- `MANIFEST.sha256` 覆盖全部已发布文件;排除项为工具状态目录(`.mimosa/`)、字节码缓存(`__pycache__/`)与
+  作者运行期控制台日志(`*.log`,含本机绝对路径,不随包发布)。清单与仓库内容严格一致:
+  clone 后执行 `sha256sum -c MANIFEST.sha256`,全部条目应报告 `OK`。
+- 三份冻结判据的 SHA256 已在上表列出,且与各自 verdict 内 `criteria_sha256` 逐字节一致——
+  即判据文件本身可被独立核验,不依赖本清单。
