@@ -1,0 +1,59 @@
+{
+  "cond": "sham",
+  "seed": 2,
+  "val_final": 6,
+  "test_final": 5,
+  "events": [
+    {
+      "seed": 2,
+      "cond": "sham",
+      "gen": 0,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 5,
+      "score_new": 5,
+      "accepted": true
+    },
+    {
+      "seed": 2,
+      "cond": "sham",
+      "gen": 1,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 5,
+      "score_new": 6,
+      "accepted": true
+    },
+    {
+      "seed": 2,
+      "cond": "sham",
+      "gen": 2,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 6,
+      "score_new": 5,
+      "accepted": false
+    },
+    {
+      "seed": 2,
+      "cond": "sham",
+      "gen": 3,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 6,
+      "score_new": 5,
+      "accepted": false
+    },
+    {
+      "seed": 2,
+      "cond": "sham",
+      "gen": 4,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 6,
+      "score_new": 5,
+      "accepted": false
+    }
+  ],
+  "final_gene": "### STRATEGY (π)\n1. 仔细阅读题目要求。\n### AVOID (α)\n- 不要跳过题目中的任何条件。\n### CONSTRAINTS (c)\n- 最终答案必须独占一行, 以 ANSWER: 开头。"
+}

@@ -1,0 +1,6 @@
+numpy>=2.0
+pandas>=2.0
+matplotlib>=3.8
+imageio>=2.30
+tqdm>=4.60
+requests>=2.30

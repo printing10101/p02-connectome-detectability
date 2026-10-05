@@ -1,0 +1,23 @@
+{
+  "title": "TJ-D1 Code-Substrate Three-Arm Verdict Batch: Artifact Package (P02 companion)",
+  "creators": [
+    {
+      "name": "Li, Yulong",
+      "orcid": "0000-0006-0492-857X",
+      "affiliation": "Independent Researcher, Guiyang, China"
+    }
+  ],
+  "description": "Artifact package for the paper 'Architecture Search in Self-Modifying Systems: The Scale-Decay Regularity of General Selection and Randomized Controlled Audit Discipline' (Paper B) and its code-substrate verdict experiment TJ-D1. Contains: experiment scripts (skill-graph platform, scale scan, three-factor scan, GEP pipeline, three-arm batch runner), per-run immutable event logs, verdict JSONs with criteria SHA256, preregistration and authorization records, self-authored task deck (48 tasks with reference solutions, brute-force cross-checks, trap solutions, and deterministic test generators), and the frozen validation deck (8 validation + 13 test instances) with its SHA256. All local experiments reproduce on a single RTX 3080 Laptop 16GB; the API tier uses DeepSeek V4.1 Flash.",
+  "access_right": "open",
+  "license": "CC-BY-4.0 (data); MIT (code)",
+  "upload_type": "dataset",
+  "keywords": ["self-evolving systems", "recursive self-improvement", "sham control", "preregistration", "LLM agents", "neuroevolution", "reproducibility"],
+  "related_identifiers": [
+    {
+      "identifier": "arXiv:2505.22954",
+      "relation": "references",
+      "resource_type": "preprint"
+    }
+  ],
+  "notes": "MANIFEST.sha256 lists SHA256 for every file; verify after download. Deck freeze: deck_frozen.json SHA256 2386a3437df9cb7fac93122574785367987b073a033cf8c3e8a708117a3b8016. Criteria freeze: TJ-D1-frozen-v1.0.json (SHA256 recorded at freeze time)."
+}

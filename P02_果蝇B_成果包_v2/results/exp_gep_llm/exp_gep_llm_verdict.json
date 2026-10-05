@@ -1,0 +1,24 @@
+{
+  "protocol": "GEP 六阶段 on llama-server qwen3-30b-a3b; 任务 4 族 x 8+8; 5代 x 2种子; 验证分接受; 测试分只测终局",
+  "G0": {
+    "gene_init_val": 5,
+    "gene_ref_val": 7
+  },
+  "test_final_per_cond": {
+    "gep-naive": 5.0,
+    "directed": 5.5,
+    "sham": 5.0
+  },
+  "mutation_sort": {
+    "param": {
+      "n_accepted": 8,
+      "mean_gain": 0.375
+    },
+    "arch": {
+      "n_accepted": 5,
+      "mean_gain": 0.4
+    }
+  },
+  "verdict": "NO_CLEAR_DIRECTED_ADVANTAGE",
+  "wall_min": 35.7
+}

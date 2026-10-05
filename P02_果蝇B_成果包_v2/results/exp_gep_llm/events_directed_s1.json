@@ -1,0 +1,59 @@
+{
+  "cond": "directed",
+  "seed": 1,
+  "val_final": 8,
+  "test_final": 6,
+  "events": [
+    {
+      "seed": 1,
+      "cond": "directed",
+      "gen": 0,
+      "mutation_type": "param",
+      "intent": "强化模运算与字母移位的精度控制，增加中间结果校验提示",
+      "score_old": 8,
+      "score_new": 5,
+      "accepted": false
+    },
+    {
+      "seed": 1,
+      "cond": "directed",
+      "gen": 1,
+      "mutation_type": "param",
+      "intent": "增强模运算的清晰度与防错机制，明确取模前的估算步骤并增加校验行",
+      "score_old": 8,
+      "score_new": 5,
+      "accepted": false
+    },
+    {
+      "seed": 1,
+      "cond": "directed",
+      "gen": 2,
+      "mutation_type": "param",
+      "intent": "增强模运算步骤的准确性与可追溯性，防止取模计算中因估算偏差导致错误",
+      "score_old": 8,
+      "score_new": 4,
+      "accepted": false
+    },
+    {
+      "seed": 1,
+      "cond": "directed",
+      "gen": 3,
+      "mutation_type": "param",
+      "intent": "增强模运算步骤的精确性，加入商的显式估算与验证环节以减少计算误差",
+      "score_old": 8,
+      "score_new": 5,
+      "accepted": false
+    },
+    {
+      "seed": 1,
+      "cond": "directed",
+      "gen": 4,
+      "mutation_type": "param",
+      "intent": "增强模运算步骤的防错机制，添加取模后验证环节",
+      "score_old": 8,
+      "score_new": 8,
+      "accepted": true
+    }
+  ],
+  "final_gene": "### STRATEGY (π)\n1. 逐行书面计算, 禁止心算: 每个中间结果必须单独写成一行, 格式为「表达式 = 结果」。\n2. 模运算链: 每步计算完立即取模, 格式如「33 × 2 = 66 → 66 mod 13 = 1」; 取模前先估算商再减；取模后额外写出验证：「13 × 商 + 余数 = 原数」，确保正确性。\n3. 字母移位: 写出位置表, 每个字母一行「字母 位置 → (位置 - k) mod 26 = 新位置 → 新字母」。\n4. 数字和构造: 先逐个列出满足数字和的所有两位数并逐个验证数字和, 再从小到大取前 4 个。\n5. 单词反转: 逐字母对位写出「第1字母→末位, 第2字母→倒数第2位」, 全部对位后再拼词。\n### AVOID (α)\n- 禁止心算与跳步; 禁止把中间结果抄错——每行写完立即与上一行核对数字。\n- 反转单词时禁止凭感觉抄写, 必须逐字母对位。\n- 模运算后必须完成验证步骤，否则视为无效计算。\n### CONSTRAINTS (c)\n- 最终答案必须独占一行, 以 ANSWER: 开头, 只含答案本身。"
+}

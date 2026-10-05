@@ -1,0 +1,20 @@
+# Python 编译缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 工具自动生成目录
+.mimosa/
+.workbuddy/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# LaTeX 中间产物（保留 .tex / .pdf / .bbl）
+*.aux
+*.log
+*.out
+*.blg

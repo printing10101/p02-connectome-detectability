@@ -1,0 +1,119 @@
+{
+  "S1": {
+    "first": 4,
+    "second_reversed_order": 4,
+    "pass": true
+  },
+  "S2": {
+    "init": 4,
+    "ref": 3,
+    "gap": -1,
+    "pass": false
+  },
+  "S3": {
+    "gene": "### STRATEGY (π)\n1. 仔细阅读题目要求。\n2. 逐步计算或构造。\n3. 检查一遍再回答。\n### AVOID (α)\n- 不要跳过题目中的任何条件。\n### CONSTRAINTS (c)\n- 最终答案必须独占一行, 以 ANSWER: 开头。",
+    "score": 4,
+    "events": [
+      {
+        "gen": 0,
+        "mutation_type": "param",
+        "intent": "增强步骤2的计算/构造逻辑，明确处理模运算、凯撒密码和字符串反转等特定操作的实现细节",
+        "score_old": 4,
+        "score_new": 1,
+        "accepted": false
+      },
+      {
+        "gen": 1,
+        "mutation_type": "param",
+        "intent": "增强对模运算和字符串变换任务的处理精度，明确计算步骤与边界条件",
+        "score_old": 4,
+        "score_new": 1,
+        "accepted": false
+      },
+      {
+        "gen": 2,
+        "mutation_type": "param",
+        "intent": "增强对模运算和字符串变换类任务的显式处理，明确指定操作步骤与边界条件",
+        "score_old": 4,
+        "score_new": 2,
+        "accepted": false
+      },
+      {
+        "gen": 3,
+        "mutation_type": "param",
+        "intent": "增强对模运算和字符串变换题目的处理精度，明确计算与转换步骤",
+        "score_old": 4,
+        "score_new": 3,
+        "accepted": false
+      }
+    ],
+    "gens_done": 4,
+    "done": true,
+    "fails": [
+      {
+        "id": "mod",
+        "prompt": "从整数 415 开始：第一步加上 30，第二步乘以 7，第三步减去 17，第四步对 17 取模，第五步加上 8。给出最终数值。",
+        "expected": "12",
+        "got": "415 + 30 = 445  \n445 × 7 = 3115  \n3115 - 17 = 3098  \n3098 mod 17 = 12  \n12 + 8 = 20  \n\nANSWER: 20"
+      },
+      {
+        "id": "caesar",
+        "prompt": "将单词 masterpiece 的每个字母替换为字母表中位置比它小 9 的字母（位置从 a=0 数起，a 的前面是 z），输出结果单词。",
+        "expected": "drjkvigzvtv",
+        "got": "m → b, a → r, s → h, t → i, e → v, r → f, o → f, p → e, i → z, e → v  \n结果为：brhivffezv  \nANSWER: brhivffezv"
+      },
+      {
+        "id": "word",
+        "prompt": "将短语「copper lantern」的每个单词的字母顺序反转，然后单词之间用短横线 - 连接输出。",
+        "expected": "reppoc-nretnal",
+        "got": "首先，反转每个单词的字母顺序：\n- \"copper\" 反转为 \"reppoc\"\n- \"lantern\" 反转为 \"nrettanal\"\n\n然后用短横线连接两个反转后的单词：\nreppoc-nrettanal\n\nANSWER: reppoc-nrettanal"
+      },
+      {
+        "id": "mod",
+        "prompt": "从整数 260 开始：第一步加上 56，第二步乘以 9，第三步减去 25，第四步对 17 取模，第五步加上 7。给出最终数值。",
+        "expected": "21",
+        "got": "260 + 56 = 316  \n316 × 9 = 2844  \n2844 - 25 = 2819  \n2819 mod 17 = 10  \n10 + 7 = 17  \n\nANSWER: 17"
+      },
+      {
+        "id": "caesar",
+        "prompt": "将单词 lighthouse 的每个字母替换为字母表中位置比它小 3 的字母（位置从 a=0 数起，a 的前面是 z），输出结果单词。",
+        "expected": "ifdeqelrpb",
+        "got": "> 5)  \ng -> d (6 -> 3)  \nh => e (7 -> 4)  \nt => q (19 -> 16)  \no => l (14 -> 11)  \nu => r (20 -> 17)  \ns => p (18 -> 15)  \ne => b (4 -> 1)  \n\nANSWER: ifd eqlrpb"
+      },
+      {
+        "id": "clist",
+        "prompt": "给出 5 个互不相同的三位数（100-999），严格递增，且每个数的各位数字之和都等于 15。以逗号分隔输出这 5 个数。",
+        "expected": "cands 子集",
+        "got": "们需要**严格递增的5个互不相同的三位数**，且每个数字和为15。\n\n我们选最小的5个满足条件的：\n\n159, 168, 177, 186, 195 —— 都是递增，且各位和为15。\n\n检查是否互不相同：是。\n\n所以答案是：159,168,177,186,195\n\nANSWER: 159,168,195,177,186"
+      },
+      {
+        "id": "word",
+        "prompt": "将短语「crystal fountain」的每个单词的字母顺序反转，然后单词之间用短横线 - 连接输出。",
+        "expected": "latsyrc-niatnuof",
+        "got": "首先，反转每个单词的字母顺序：\n- \"crystal\" 反转为 \"latsyc\"\n- \"fountain\" 反转为 \"nutauf\"\n\n然后，用短横线连接两个反转后的单词：\nlatsyc-nutauf\n\nANSWER: latsyc-nutauf"
+      },
+      {
+        "id": "word",
+        "prompt": "将短语「winter garden」的每个单词的字母顺序反转，然后单词之间用短横线 - 连接输出。",
+        "expected": "retniw-nedrag",
+        "got": "首先，将「winter garden」拆分为两个单词：winter 和 garden。  \n对每个单词的字母顺序进行反转：  \n- winter 反转为 \"retniw\"  \n- garden 反转为 \"nadrag\"  \n然后用短横线连接：retniw-nadrag  \n\nANSWER: retniw-nadrag"
+      }
+    ]
+  },
+  "S3_summary": {
+    "traj": [
+      4,
+      null,
+      null,
+      null,
+      null
+    ],
+    "val_init": 4,
+    "val_final": 4,
+    "climb": 0,
+    "parse_ok": 4,
+    "n_gens": 4,
+    "pass": false,
+    "wall_min": 186.7
+  }
+}

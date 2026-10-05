@@ -1,0 +1,32 @@
+{
+  "pipeline": "G-LLM optimization validation (checkpointed)",
+  "S1_determinism": {
+    "first": 4,
+    "second_reversed_order": 4,
+    "pass": true
+  },
+  "S2_premise": {
+    "init": 4,
+    "ref": 3,
+    "gap": -1,
+    "pass": false
+  },
+  "S3_climb": {
+    "traj": [
+      4,
+      null,
+      null,
+      null,
+      null
+    ],
+    "val_init": 4,
+    "val_final": 4,
+    "climb": 0,
+    "parse_ok": 4,
+    "n_gens": 4,
+    "pass": false,
+    "wall_min": 186.7
+  },
+  "pipeline_reasonable": false,
+  "directed_premise": false
+}

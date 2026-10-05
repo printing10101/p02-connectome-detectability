@@ -1,0 +1,16 @@
+{
+  "gene_init": 10,
+  "gene_ref": 8,
+  "gate_pass": false,
+  "rule": "gate: gene_ref - gene_init >= 2 (参考基因须显著值钱, handwire 纪律)",
+  "init_fails": [
+    "mod",
+    "word"
+  ],
+  "ref_fails": [
+    "word",
+    "clist",
+    "caesar",
+    "clist"
+  ]
+}

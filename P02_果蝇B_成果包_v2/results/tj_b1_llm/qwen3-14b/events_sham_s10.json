@@ -1,0 +1,116 @@
+{
+  "cond": "sham",
+  "seed": 10,
+  "val_final": 0,
+  "test_final": 1,
+  "events": [
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 0,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 1,
+      "mutation_type": "arch",
+      "intent": "sham:交换两行步骤",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 2,
+      "mutation_type": "arch",
+      "intent": "sham:交换两行步骤",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 3,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 4,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 5,
+      "mutation_type": "arch",
+      "intent": "sham:追加一步",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 6,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 7,
+      "mutation_type": "arch",
+      "intent": "sham:追加一步",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 8,
+      "mutation_type": "arch",
+      "intent": "sham:删除最后一步",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    },
+    {
+      "seed": 10,
+      "cond": "sham",
+      "gen": 9,
+      "mutation_type": "arch",
+      "intent": "sham:追加一步",
+      "score_old": 0,
+      "score_new": 0,
+      "accepted": true
+    }
+  ],
+  "final_gene": "### STRATEGY (π)\n### AVOID (α)\n- 不要跳过题目中的任何条件。\n### CONSTRAINTS (c)\n- 最终答案必须独占一行, 以 ANSWER: 开头。\n4. 再检查一遍。",
+  "token_usage": {
+    "llm_calls": 152,
+    "prompt_tokens": 19939,
+    "completion_tokens": 6899
+  },
+  "model": "qwen3-14b",
+  "wall_min": 3.7
+}

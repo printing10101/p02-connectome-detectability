@@ -1,0 +1,59 @@
+{
+  "cond": "directed",
+  "seed": 2,
+  "val_final": 7,
+  "test_final": 5,
+  "events": [
+    {
+      "seed": 2,
+      "cond": "directed",
+      "gen": 0,
+      "mutation_type": "param",
+      "intent": "修正单词反转步骤中的对位逻辑，确保首尾字母对位正确且顺序无误",
+      "score_old": 7,
+      "score_new": 6,
+      "accepted": false
+    },
+    {
+      "seed": 2,
+      "cond": "directed",
+      "gen": 1,
+      "mutation_type": "param",
+      "intent": "修正单词反转步骤中的对位逻辑，确保首尾字母严格对称交换",
+      "score_old": 7,
+      "score_new": 6,
+      "accepted": false
+    },
+    {
+      "seed": 2,
+      "cond": "directed",
+      "gen": 2,
+      "mutation_type": "param",
+      "intent": "修正单词反转步骤中字母对位逻辑的表述，确保首尾对位顺序准确无误",
+      "score_old": 7,
+      "score_new": 5,
+      "accepted": false
+    },
+    {
+      "seed": 2,
+      "cond": "directed",
+      "gen": 3,
+      "mutation_type": "param",
+      "intent": "修正单词反转步骤中对位逻辑的表述，确保首尾字母正确映射",
+      "score_old": 7,
+      "score_new": 7,
+      "accepted": true
+    },
+    {
+      "seed": 2,
+      "cond": "directed",
+      "gen": 4,
+      "mutation_type": "param",
+      "intent": "修正单词反转步骤中对位逻辑的表述，确保倒数位置映射准确无误",
+      "score_old": 7,
+      "score_new": 5,
+      "accepted": false
+    }
+  ],
+  "final_gene": "### STRATEGY (π)\n1. 逐行书面计算, 禁止心算: 每个中间结果必须单独写成一行, 格式为「表达式 = 结果」。\n2. 模运算链: 每步计算完立即取模, 格式如「33 × 2 = 66 → 66 mod 13 = 1」; 取模前先估算商再减。\n3. 字母移位: 写出位置表, 每个字母一行「字母 位置 → (位置 - k) mod 26 = 新位置 → 新字母」。\n4. 数字和构造: 先逐个列出满足数字和的所有两位数并逐个验证数字和, 再从小到大取前 4 个。\n5. 单词反转: 逐字母对位写出「第i字母 → 倒数第i位字母」，i从1到len(单词)，全部对位后按新顺序拼接成词。\n### AVOID (α)\n- 禁止心算与跳步; 禁止把中间结果抄错——每行写完立即与上一行核对数字。\n- 反转单词时禁止凭感觉抄写, 必须按「第i位对应倒数第i位」严格对位。\n### CONSTRAINTS (c)\n- 最终答案必须独占一行, 以 ANSWER: 开头, 只含答案本身。"
+}

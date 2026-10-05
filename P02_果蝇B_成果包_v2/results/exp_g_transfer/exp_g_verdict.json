@@ -1,0 +1,85 @@
+{
+  "protocol": "skill-DAG 3级/12技能/35候选边; 16任务; pop60 x 500代 x 5种子; sham=独立突变流+适应度打乱; directed=结构经定向通道直装(参考边集)+选择只调参验收",
+  "G0_handwire": {
+    "初始随机掩码+零偏置": 1,
+    "参考边集+零偏置(只装结构)": 1,
+    "参考边集+参考偏置(满配)": 16,
+    "随机掩码+参考偏置(装错结构)": 1
+  },
+  "final_best_per_cond": {
+    "naive": 9.2,
+    "param-only": 6.2,
+    "directed": 15.6,
+    "sham": 4.2,
+    "gated": 9.6
+  },
+  "ablation_naive": {
+    "参数承载(架构回滚)": 2.2,
+    "架构承载(参数回滚)": 1.8
+  },
+  "mask_stats": {
+    "init(Chance水平)": {
+      "n_on": 8,
+      "match_ref": 3
+    },
+    "ref": {
+      "n_on": 14,
+      "match_ref": 14
+    },
+    "naive": [
+      {
+        "n_on": 18,
+        "match_ref": 8
+      },
+      {
+        "n_on": 16,
+        "match_ref": 10
+      },
+      {
+        "n_on": 14,
+        "match_ref": 8
+      },
+      {
+        "n_on": 19,
+        "match_ref": 8
+      },
+      {
+        "n_on": 13,
+        "match_ref": 7
+      }
+    ],
+    "sham": [
+      {
+        "n_on": 17,
+        "match_ref": 4
+      },
+      {
+        "n_on": 17,
+        "match_ref": 6
+      },
+      {
+        "n_on": 21,
+        "match_ref": 9
+      },
+      {
+        "n_on": 15,
+        "match_ref": 7
+      },
+      {
+        "n_on": 17,
+        "match_ref": 6
+      }
+    ]
+  },
+  "gated_efficiency": {
+    "arch_mut_spent_gated": 230493.6,
+    "arch_mut_spent_naive": 249597.6
+  },
+  "checks": {
+    "selection_signal(naive-sham>=2)": true,
+    "arch_value(naive-paramonly>=1)": true,
+    "directed_channel(directed-naive>=1)": true
+  },
+  "verdict": "ASYMMETRY_REPLICATED",
+  "wall_s": 122.3
+}

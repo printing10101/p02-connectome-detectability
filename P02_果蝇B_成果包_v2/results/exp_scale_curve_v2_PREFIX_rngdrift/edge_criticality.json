@@ -1,0 +1,141 @@
+{
+  "reference_full_solve": 16,
+  "single_edge_ablation": [
+    {
+      "ei": 0,
+      "edge": [
+        0,
+        1
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 4,
+      "edge": [
+        1,
+        5
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 12,
+      "edge": [
+        3,
+        5
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 20,
+      "edge": [
+        5,
+        9
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 32,
+      "edge": [
+        9,
+        12
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 2,
+      "edge": [
+        0,
+        3
+      ],
+      "solved_without": 3,
+      "drop": 13
+    },
+    {
+      "ei": 1,
+      "edge": [
+        0,
+        2
+      ],
+      "solved_without": 16,
+      "drop": 0
+    },
+    {
+      "ei": 5,
+      "edge": [
+        1,
+        6
+      ],
+      "solved_without": 16,
+      "drop": 0
+    },
+    {
+      "ei": 9,
+      "edge": [
+        2,
+        6
+      ],
+      "solved_without": 16,
+      "drop": 0
+    },
+    {
+      "ei": 14,
+      "edge": [
+        3,
+        7
+      ],
+      "solved_without": 16,
+      "drop": 0
+    },
+    {
+      "ei": 19,
+      "edge": [
+        4,
+        8
+      ],
+      "solved_without": 16,
+      "drop": 0
+    },
+    {
+      "ei": 24,
+      "edge": [
+        6,
+        10
+      ],
+      "solved_without": 16,
+      "drop": 0
+    },
+    {
+      "ei": 28,
+      "edge": [
+        7,
+        11
+      ],
+      "solved_without": 16,
+      "drop": 0
+    },
+    {
+      "ei": 31,
+      "edge": [
+        8,
+        11
+      ],
+      "solved_without": 16,
+      "drop": 0
+    }
+  ],
+  "dropped_for_main": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      5
+    ]
+  ]
+}

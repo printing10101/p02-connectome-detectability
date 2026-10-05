@@ -1,0 +1,600 @@
+{
+  "protocol": "缺失边找回: 同起点(参考边集去 1 条关键边); 5 条件 x 4 规模 x 2 缺边 x 3 种子 x 300 代; pop 60; p_flip=2.1/W (翻转总量跨规模恒定); 五条件共享 RNG 轨迹(逐种子配对); naive-arch=架构自由+参数钉在参考偏置(纯发现); param-only=架构冻结+参数自由(纯修复); directed=参考边集直装(天花板); sham=架构自由+参数钉住+适应度打乱(漂移地板)",
+  "equivalence_check": {
+    "W": 35,
+    "mismatch": 0,
+    "ok": true
+  },
+  "reference_full_solve": 16,
+  "dropped_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      5
+    ]
+  ],
+  "edge_criticality_top": [
+    {
+      "ei": 0,
+      "edge": [
+        0,
+        1
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 4,
+      "edge": [
+        1,
+        5
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 12,
+      "edge": [
+        3,
+        5
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 20,
+      "edge": [
+        5,
+        9
+      ],
+      "solved_without": 1,
+      "drop": 15
+    },
+    {
+      "ei": 32,
+      "edge": [
+        9,
+        12
+      ],
+      "solved_without": 1,
+      "drop": 15
+    }
+  ],
+  "per_W": {
+    "35": {
+      "naive-arch": {
+        "n": 6,
+        "edge_on_rate": 1.0,
+        "recovery_rate": 1.0,
+        "achieved_rate": 1.0,
+        "restored_rate": 0.6667,
+        "mean_final_best": 16.0,
+        "mean_arch_progress": 0.9643,
+        "mean_first_recover_gen": 0.3,
+        "mean_n_on": 14.33,
+        "mean_n_ref_kept": 13.5,
+        "mean_n_decoys_on": 0.83,
+        "per_run": {
+          "s1_d0": 16.0,
+          "s2_d0": 16.0,
+          "s3_d0": 16.0,
+          "s1_d1": 16.0,
+          "s2_d1": 16.0,
+          "s3_d1": 16.0
+        }
+      },
+      "param-only": {
+        "n": 6,
+        "edge_on_rate": 0.0,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.0,
+        "mean_final_best": 5.0,
+        "mean_arch_progress": 0.9286,
+        "mean_first_recover_gen": null,
+        "mean_n_on": 13.0,
+        "mean_n_ref_kept": 13.0,
+        "mean_n_decoys_on": 0.0,
+        "per_run": {
+          "s1_d0": 5.0,
+          "s2_d0": 5.0,
+          "s3_d0": 5.0,
+          "s1_d1": 5.0,
+          "s2_d1": 5.0,
+          "s3_d1": 5.0
+        }
+      },
+      "directed": {
+        "n": 6,
+        "edge_on_rate": 1.0,
+        "recovery_rate": 0.6667,
+        "achieved_rate": 0.6667,
+        "restored_rate": 1.0,
+        "mean_final_best": 15.667,
+        "mean_arch_progress": 1.0,
+        "mean_first_recover_gen": 101.0,
+        "mean_n_on": 14.0,
+        "mean_n_ref_kept": 14.0,
+        "mean_n_decoys_on": 0.0,
+        "per_run": {
+          "s1_d0": 16.0,
+          "s2_d0": 15.0,
+          "s3_d0": 16.0,
+          "s1_d1": 16.0,
+          "s2_d1": 15.0,
+          "s3_d1": 16.0
+        }
+      },
+      "naive-joint": {
+        "n": 6,
+        "edge_on_rate": 0.8333,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.1667,
+        "mean_final_best": 11.833,
+        "mean_arch_progress": 0.7857,
+        "mean_first_recover_gen": null,
+        "mean_n_on": 16.33,
+        "mean_n_ref_kept": 11.0,
+        "mean_n_decoys_on": 5.33,
+        "per_run": {
+          "s1_d0": 13.0,
+          "s2_d0": 11.0,
+          "s3_d0": 13.0,
+          "s1_d1": 13.0,
+          "s2_d1": 8.0,
+          "s3_d1": 13.0
+        }
+      },
+      "sham": {
+        "n": 6,
+        "edge_on_rate": 0.5,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.0,
+        "mean_final_best": 4.5,
+        "mean_arch_progress": 0.5595,
+        "mean_first_recover_gen": 21.6,
+        "mean_n_on": 19.5,
+        "mean_n_ref_kept": 7.83,
+        "mean_n_decoys_on": 11.67,
+        "per_run": {
+          "s1_d0": 4.0,
+          "s2_d0": 5.0,
+          "s3_d0": 4.0,
+          "s1_d1": 5.0,
+          "s2_d1": 4.0,
+          "s3_d1": 5.0
+        }
+      }
+    },
+    "273": {
+      "naive-arch": {
+        "n": 6,
+        "edge_on_rate": 0.8333,
+        "recovery_rate": 0.6667,
+        "achieved_rate": 0.6667,
+        "restored_rate": 0.6667,
+        "mean_final_best": 13.333,
+        "mean_arch_progress": 0.9405,
+        "mean_first_recover_gen": 4.0,
+        "mean_n_on": 31.33,
+        "mean_n_ref_kept": 13.17,
+        "mean_n_decoys_on": 18.17,
+        "per_run": {
+          "s1_d0": 16.0,
+          "s2_d0": 16.0,
+          "s3_d0": 16.0,
+          "s1_d1": 16.0,
+          "s2_d1": 9.0,
+          "s3_d1": 7.0
+        }
+      },
+      "param-only": {
+        "n": 6,
+        "edge_on_rate": 0.0,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.0,
+        "mean_final_best": 5.0,
+        "mean_arch_progress": 0.9286,
+        "mean_first_recover_gen": null,
+        "mean_n_on": 13.0,
+        "mean_n_ref_kept": 13.0,
+        "mean_n_decoys_on": 0.0,
+        "per_run": {
+          "s1_d0": 5.0,
+          "s2_d0": 5.0,
+          "s3_d0": 5.0,
+          "s1_d1": 5.0,
+          "s2_d1": 5.0,
+          "s3_d1": 5.0
+        }
+      },
+      "directed": {
+        "n": 6,
+        "edge_on_rate": 1.0,
+        "recovery_rate": 0.6667,
+        "achieved_rate": 0.6667,
+        "restored_rate": 1.0,
+        "mean_final_best": 15.667,
+        "mean_arch_progress": 1.0,
+        "mean_first_recover_gen": 101.0,
+        "mean_n_on": 14.0,
+        "mean_n_ref_kept": 14.0,
+        "mean_n_decoys_on": 0.0,
+        "per_run": {
+          "s1_d0": 16.0,
+          "s2_d0": 15.0,
+          "s3_d0": 16.0,
+          "s1_d1": 16.0,
+          "s2_d1": 15.0,
+          "s3_d1": 16.0
+        }
+      },
+      "naive-joint": {
+        "n": 6,
+        "edge_on_rate": 0.3333,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.1667,
+        "mean_final_best": 11.5,
+        "mean_arch_progress": 0.9048,
+        "mean_first_recover_gen": null,
+        "mean_n_on": 45.83,
+        "mean_n_ref_kept": 12.67,
+        "mean_n_decoys_on": 33.17,
+        "per_run": {
+          "s1_d0": 10.0,
+          "s2_d0": 13.0,
+          "s3_d0": 11.0,
+          "s1_d1": 7.0,
+          "s2_d1": 15.0,
+          "s3_d1": 13.0
+        }
+      },
+      "sham": {
+        "n": 6,
+        "edge_on_rate": 0.1667,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.0,
+        "mean_final_best": 4.5,
+        "mean_arch_progress": 0.4762,
+        "mean_first_recover_gen": 19.2,
+        "mean_n_on": 138.83,
+        "mean_n_ref_kept": 6.67,
+        "mean_n_decoys_on": 132.17,
+        "per_run": {
+          "s1_d0": 4.0,
+          "s2_d0": 4.0,
+          "s3_d0": 5.0,
+          "s1_d1": 5.0,
+          "s2_d1": 5.0,
+          "s3_d1": 4.0
+        }
+      }
+    },
+    "1050": {
+      "naive-arch": {
+        "n": 6,
+        "edge_on_rate": 0.5,
+        "recovery_rate": 0.5,
+        "achieved_rate": 0.5,
+        "restored_rate": 0.5,
+        "mean_final_best": 12.0,
+        "mean_arch_progress": 0.9167,
+        "mean_first_recover_gen": 2.7,
+        "mean_n_on": 37.67,
+        "mean_n_ref_kept": 12.83,
+        "mean_n_decoys_on": 24.83,
+        "per_run": {
+          "s1_d0": 16.0,
+          "s2_d0": 5.0,
+          "s3_d0": 16.0,
+          "s1_d1": 6.0,
+          "s2_d1": 13.0,
+          "s3_d1": 16.0
+        }
+      },
+      "param-only": {
+        "n": 6,
+        "edge_on_rate": 0.0,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.0,
+        "mean_final_best": 5.0,
+        "mean_arch_progress": 0.9286,
+        "mean_first_recover_gen": null,
+        "mean_n_on": 13.0,
+        "mean_n_ref_kept": 13.0,
+        "mean_n_decoys_on": 0.0,
+        "per_run": {
+          "s1_d0": 5.0,
+          "s2_d0": 5.0,
+          "s3_d0": 5.0,
+          "s1_d1": 5.0,
+          "s2_d1": 5.0,
+          "s3_d1": 5.0
+        }
+      },
+      "directed": {
+        "n": 6,
+        "edge_on_rate": 1.0,
+        "recovery_rate": 0.6667,
+        "achieved_rate": 0.6667,
+        "restored_rate": 1.0,
+        "mean_final_best": 15.667,
+        "mean_arch_progress": 1.0,
+        "mean_first_recover_gen": 101.0,
+        "mean_n_on": 14.0,
+        "mean_n_ref_kept": 14.0,
+        "mean_n_decoys_on": 0.0,
+        "per_run": {
+          "s1_d0": 16.0,
+          "s2_d0": 15.0,
+          "s3_d0": 16.0,
+          "s1_d1": 16.0,
+          "s2_d1": 15.0,
+          "s3_d1": 16.0
+        }
+      },
+      "naive-joint": {
+        "n": 6,
+        "edge_on_rate": 0.1667,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.1667,
+        "mean_final_best": 11.833,
+        "mean_arch_progress": 0.9286,
+        "mean_first_recover_gen": null,
+        "mean_n_on": 66.67,
+        "mean_n_ref_kept": 13.0,
+        "mean_n_decoys_on": 53.67,
+        "per_run": {
+          "s1_d0": 13.0,
+          "s2_d0": 13.0,
+          "s3_d0": 12.0,
+          "s1_d1": 13.0,
+          "s2_d1": 8.0,
+          "s3_d1": 12.0
+        }
+      },
+      "sham": {
+        "n": 6,
+        "edge_on_rate": 0.6667,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.0,
+        "mean_final_best": 5.167,
+        "mean_arch_progress": 0.7381,
+        "mean_first_recover_gen": 36.7,
+        "mean_n_on": 301.0,
+        "mean_n_ref_kept": 10.33,
+        "mean_n_decoys_on": 290.67,
+        "per_run": {
+          "s1_d0": 6.0,
+          "s2_d0": 5.0,
+          "s3_d0": 8.0,
+          "s1_d1": 4.0,
+          "s2_d1": 4.0,
+          "s3_d1": 4.0
+        }
+      }
+    },
+    "2331": {
+      "naive-arch": {
+        "n": 6,
+        "edge_on_rate": 0.1667,
+        "recovery_rate": 0.1667,
+        "achieved_rate": 0.1667,
+        "restored_rate": 0.1667,
+        "mean_final_best": 8.333,
+        "mean_arch_progress": 0.9047,
+        "mean_first_recover_gen": 3.0,
+        "mean_n_on": 51.0,
+        "mean_n_ref_kept": 12.67,
+        "mean_n_decoys_on": 38.33,
+        "per_run": {
+          "s1_d0": 16.0,
+          "s2_d0": 4.0,
+          "s3_d0": 4.0,
+          "s1_d1": 10.0,
+          "s2_d1": 9.0,
+          "s3_d1": 7.0
+        }
+      },
+      "param-only": {
+        "n": 6,
+        "edge_on_rate": 0.0,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.0,
+        "mean_final_best": 5.0,
+        "mean_arch_progress": 0.9286,
+        "mean_first_recover_gen": null,
+        "mean_n_on": 13.0,
+        "mean_n_ref_kept": 13.0,
+        "mean_n_decoys_on": 0.0,
+        "per_run": {
+          "s1_d0": 5.0,
+          "s2_d0": 5.0,
+          "s3_d0": 5.0,
+          "s1_d1": 5.0,
+          "s2_d1": 5.0,
+          "s3_d1": 5.0
+        }
+      },
+      "directed": {
+        "n": 6,
+        "edge_on_rate": 1.0,
+        "recovery_rate": 0.6667,
+        "achieved_rate": 0.6667,
+        "restored_rate": 1.0,
+        "mean_final_best": 15.667,
+        "mean_arch_progress": 1.0,
+        "mean_first_recover_gen": 101.0,
+        "mean_n_on": 14.0,
+        "mean_n_ref_kept": 14.0,
+        "mean_n_decoys_on": 0.0,
+        "per_run": {
+          "s1_d0": 16.0,
+          "s2_d0": 15.0,
+          "s3_d0": 16.0,
+          "s1_d1": 16.0,
+          "s2_d1": 15.0,
+          "s3_d1": 16.0
+        }
+      },
+      "naive-joint": {
+        "n": 6,
+        "edge_on_rate": 0.6667,
+        "recovery_rate": 0.1667,
+        "achieved_rate": 0.1667,
+        "restored_rate": 0.6667,
+        "mean_final_best": 12.333,
+        "mean_arch_progress": 0.9524,
+        "mean_first_recover_gen": 195.0,
+        "mean_n_on": 70.17,
+        "mean_n_ref_kept": 13.33,
+        "mean_n_decoys_on": 56.83,
+        "per_run": {
+          "s1_d0": 14.0,
+          "s2_d0": 13.0,
+          "s3_d0": 10.0,
+          "s1_d1": 13.0,
+          "s2_d1": 16.0,
+          "s3_d1": 8.0
+        }
+      },
+      "sham": {
+        "n": 6,
+        "edge_on_rate": 0.1667,
+        "recovery_rate": 0.0,
+        "achieved_rate": 0.0,
+        "restored_rate": 0.0,
+        "mean_final_best": 4.833,
+        "mean_arch_progress": 0.8214,
+        "mean_first_recover_gen": 48.5,
+        "mean_n_on": 367.0,
+        "mean_n_ref_kept": 11.5,
+        "mean_n_decoys_on": 355.5,
+        "per_run": {
+          "s1_d0": 4.0,
+          "s2_d0": 5.0,
+          "s3_d0": 5.0,
+          "s1_d1": 4.0,
+          "s2_d1": 6.0,
+          "s3_d1": 5.0
+        }
+      }
+    }
+  },
+  "recovery_rate_by_W": {
+    "35": 1.0,
+    "273": 0.6667,
+    "1050": 0.5,
+    "2331": 0.1667
+  },
+  "achieved_rate_by_W": {
+    "35": 1.0,
+    "273": 0.6667,
+    "1050": 0.5,
+    "2331": 0.1667
+  },
+  "sham_achieved_by_W": {
+    "35": 0.0,
+    "273": 0.0,
+    "1050": 0.0,
+    "2331": 0.0
+  },
+  "param_only_recovery_by_W": {
+    "35": 0.0,
+    "273": 0.0,
+    "1050": 0.0,
+    "2331": 0.0
+  },
+  "param_only_score_by_W": {
+    "35": 5.0,
+    "273": 5.0,
+    "1050": 5.0,
+    "2331": 5.0
+  },
+  "directed_score_by_W": {
+    "35": 15.667,
+    "273": 15.667,
+    "1050": 15.667,
+    "2331": 15.667
+  },
+  "wall_min": 20.5,
+  "verdict": "DISCOVERY_DECAY_CONFIRMED",
+  "checks": {
+    "directed_scale_invariant": true,
+    "param_only_edge_off": true,
+    "directed_edge_on": true,
+    "sham_below_naive": true,
+    "param_only_W_invariant": true
+  },
+  "directed_per_run_by_W": {
+    "35": {
+      "s1_d0": 16.0,
+      "s2_d0": 15.0,
+      "s3_d1": 16.0,
+      "s2_d1": 15.0,
+      "s3_d0": 16.0,
+      "s1_d1": 16.0
+    },
+    "273": {
+      "s1_d0": 16.0,
+      "s2_d0": 15.0,
+      "s3_d1": 16.0,
+      "s2_d1": 15.0,
+      "s3_d0": 16.0,
+      "s1_d1": 16.0
+    },
+    "1050": {
+      "s1_d0": 16.0,
+      "s2_d0": 15.0,
+      "s3_d1": 16.0,
+      "s2_d1": 15.0,
+      "s3_d0": 16.0,
+      "s1_d1": 16.0
+    },
+    "2331": {
+      "s1_d0": 16.0,
+      "s2_d0": 15.0,
+      "s3_d1": 16.0,
+      "s2_d1": 15.0,
+      "s3_d0": 16.0,
+      "s1_d1": 16.0
+    }
+  },
+  "achieved_nonincreasing_violations": "0/3",
+  "recovery_nonincreasing_violations": "0/3",
+  "achieved_last_over_first": 0.167,
+  "arch_progress_arch_only_by_W": {
+    "35": 0.9643,
+    "273": 0.9405,
+    "1050": 0.9167,
+    "2331": 0.9047
+  },
+  "arch_progress_joint_by_W": {
+    "35": 0.7857,
+    "273": 0.9048,
+    "1050": 0.9286,
+    "2331": 0.9524
+  },
+  "attention_gap_by_W": {
+    "35": 0.1786,
+    "273": 0.0357,
+    "1050": -0.0119,
+    "2331": -0.0477
+  },
+  "attention_competition": false,
+  "blind_search_decay": true,
+  "rule": "RNG_PAIRING_FAILED: directed 逐种子终局跨规模不逐位相同 (适应度在参考结构下与 W 无关, 故这是 RNG 配对失效或诱饵不中性); WIRING_ERROR: param-only 找回率非 0 或 directed 找回率非 1; WIRING_ERROR_PARAM_DRIFT: param-only 分数跨 W 变动 >1; SHAM_CONTAMINATED: sham 达标率 > max(0.1, naive-arch首点/3); ATTENTION_COMPETITION_CONFIRMED: 末点 attention_gap>=0.25 且 末点>=首点; DISCOVERY_DECAY_CONFIRMED: naive-arch 达标率逐点不增 且 末点<首点/3; PARTIAL: 达标率与找回率各最多一处反弹; 其余 NOT_OBSERVED",
+  "plot": "scale_v2_curve.png"
+}

@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "name": "TJ1 顶刊冲刺补实验 · 预注册判据",
+    "version": "1.0-frozen",
+    "freeze_date": "2026-09-22",
+    "design_of_record": "TJ1-顶刊冲刺-补实验总设计与判据提案.md (v1, 2026-09-22)",
+    "freeze_note": "依据用户 2026-09-22 执行指令冻结(『制定完实验清单之后,一条一条的执行』)。此后不得回改;任何指标作废或修订须另立 v1.1 并留痕。判读以本 JSON 为准,事后放宽无效。TJ-B1 的 token 总预算未冻结,该实验保持 conditional,不得开跑。",
+    "runtime_note": "本机无 venv,统一用系统 Python(3.14.4);冻结时 Origin 未安装、llama-server 未运行(不影响 A/C 线)。"
+  },
+  "global_disciplines": [
+    "判决实验禁用评估级联",
+    "跨规模比较固定块+切片配对 RNG",
+    "跨设定公平锁 = 绝对翻转数 FLIPS_PER_GENOME=2.1",
+    "拓扑 null = 度+权双匹配 × ≥5 种子 × 共享初始化 × 报效应量",
+    "sham 通道从第一天就在(独立突变流 ga_seed=seed+10000 + 适应度打乱)",
+    "阴性结论表述为『当前协议下选择对结构改动不敏感』;时间口径一律『×4』(80 代 = 判窗 20 代的 4 倍)",
+    "逐种子报告强制:任何效应量必须附逐种子值,禁止只报均值"
+  ],
+  "experiments": {
+    "TJ_A1a_weight_fingerprint": {
+      "question": "权重层选择信号在 n=12 下是否存活",
+      "design": "real/neutral × seeds 1-12, pop60×60gen×duration20×n_eps2",
+      "criteria": {
+        "aggregate_ratio_ci_lower_gt": 1.5,
+        "per_seed_ratio_ge_1p5_fraction": 0.6,
+        "verdict_pass": "A1A_WEIGHT_ROBUST",
+        "verdict_fail": "A1A_WEIGHT_DISSOLVES"
+      }
+    },
+    "TJ_A1b_longrun_structure": {
+      "question": "80 代(判窗×4)结构层固定率比在 n=10 下是否仍不显形",
+      "design": "real/neutral × seeds 1-10, pop20×80gen, run_c8_long 协议",
+      "criteria": {
+        "fixed_ratio_threshold": 1.5,
+        "seeds_over_threshold_for_support": 8,
+        "current_baseline_per_seed": [1.15, 0.70, 0.60],
+        "verdict_negative_robust": "A1B_STRUCTURE_INSENSITIVE",
+        "verdict_fragmentary": "A1B_FRAGMENTARY"
+      }
+    },
+    "TJ_A1c_hardcut": {
+      "question": "全断档档位(ORN→PN 彻底清零)n=10 复核",
+      "design": "real/neutral × seeds 1-10, run_c8_hardcut 协议",
+      "criteria": {
+        "fixed_ratio_threshold": 1.5,
+        "seeds_over_threshold_for_support": 8,
+        "verdict_pass": "A1C_STRUCTURE_SUPPORTED_HARDCUT",
+        "verdict_negative": "A1C_STRUCTURE_INSENSITIVE_HARDCUT"
+      }
+    },
+    "TJ_A1d_topo_two_tasks": {
+      "question": "真实拓扑在双任务族 n=10 下是否仍不优于双匹配随机",
+      "design": "3 基质 × seeds 1-10 × 趋化+掠食, run_c7_topo / run_c7_predator",
+      "criteria": {
+        "null_type": "degree+weight double-matched",
+        "paired_seed_wins_needed": 6,
+        "verdict_real_better": "A1D_TOPO_ADVANTAGE",
+        "verdict_robust_negative": "A1D_TOPO_NOT_SUPPORTED"
+      }
+    },
+    "TJ_A2_positive_control_ladder": {
+      "question": "结构层检测方法在『结构应当被选择』的 regime 下是否灵敏",
+      "tiers": {
+        "A2a_weight_freeze": "mut_sigma=0 × structure × hardcut × real/neutral × seeds 1-10",
+        "A2b_candidate_narrowing": "候选边 = handwire 最优边集(contra_DN,k64,w4.0) + 9 诱饵 × real/neutral × seeds 1-10 × hardcut",
+        "A2c_retention": "最优旁路 w4.0 初始化保持性 × seeds 1-10"
+      },
+      "manifest_criteria": {
+        "fixed_ratio_threshold": 1.5,
+        "seeds_consistent_needed": 6,
+        "behavior_gain_ci_excludes_zero": true
+      },
+      "judgment_matrix": {
+        "A2a_manifest_A2b_manifest": "A2_ASSAY_SENSITIVE",
+        "A2a_manifest_A2b_silent": "A2_OPERATOR_BOTTLENECK",
+        "A2a_silent_A2b_silent": "A2_SELECTION_BLIND(须先过评估噪声排查方可主张)",
+        "A2a_silent_A2b_manifest": "A2_CONTRADICTORY(冻结全案重议)"
+      },
+      "prelaunch_gate": "评估重测信度预实验:同一基因组 × 20 次评估,若评估 SD > 行为增益效应量的 1/3,先升 n_eps 再跑"
+    },
+    "TJ_A3_skillgraph_replication": {
+      "question": "定向通道优势在技能图 n=20 下是否成立",
+      "design": "exp_g_transfer 五臂 × seeds 1-20 × 500 代",
+      "criteria": {
+        "directed_minus_sham_ci_excludes_zero": true,
+        "seed_direction_consistency": 0.8,
+        "verdict_pass": "A3_REPLICATED",
+        "verdict_fail": "A3_WEAK"
+      }
+    },
+    "TJ_A4_scale_axis": {
+      "question": "不对称度 D(W)=λ_param/λ_struct 随基质规模 W 的形状",
+      "design": "exp_scale_curve_v2 四档 W∈{35,273,1050,2331} × seeds 1-10 × directed/naive/sham;端点复用 A1/A3",
+      "criteria": {
+        "verdict_monotone": "A4_SCALE_LAW",
+        "verdict_flat": "A4_FLAT",
+        "verdict_nonmonotone": "A4_NONMONOTONIC"
+      }
+    },
+    "TJ_B1_llm_three_arm": {
+      "status": "CONDITIONAL_LLAMA_SERVER_NOT_RUNNING_TOKEN_BUDGET_NOT_FROZEN",
+      "blockers": ["llama-server 1234/1235/1236 均未运行(冻结时点实测)", "用户未拍板 token 总预算与最终模型清单"],
+      "planned_design": "3 模型(qwen3-8b/gpt-oss-20b/qwen3-30b-a3b)× 3 臂 × seeds 1-10 × GENS=10 × 正式任务集",
+      "criteria": {
+        "directed_minus_sham_ci_excludes_zero_and_seeds_ge_7of10": "B1_DIRECTED_WINS",
+        "tost_equivalence_fail": "B1_EQUIV",
+        "seed_variance_swamps_arms": "B1_NOISE(计量学先行,禁滚动加注)",
+        "self_report_misclassification_rate_max": 0.2
+      }
+    },
+    "TJ_B2_three_factor": {
+      "question": "架构发现能力衰减曲线形状(变异档 × 规模 × 世代)",
+      "design": "exp_gens_mut_scale 全网格 × seeds 1-8, checkpoints 10..800",
+      "criteria": {
+        "verdict_exponential": "B2_DECAY_EXPONENTIAL",
+        "verdict_powerlaw": "B2_DECAY_POWERLAW",
+        "verdict_flat": "B2_NO_DECAY"
+      }
+    },
+    "TJ_C1_duplication_lineage": {
+      "question": "神经元重复谱系存续的逐种子区间与形状(修正 4.3% 单种子引用)",
+      "design": "重算 st_real_s1/s2 + verdict_c8_* 全部 dup_log;结构先导重跑 5 种子(含副本边 id 增强)",
+      "criteria": {
+        "verdict_bimodal": "C1_BIMODAL(多数消亡+少数完全固定)",
+        "verdict_gradual": "C1_GRADUAL(类比降格)"
+      }
+    }
+  },
+  "stop_loss": [
+    "B1 全阴性照预注册改叙,不滚动加注",
+    "A1 出现种子翻转照实报告并降格叙事",
+    "A 线优先,B 线让路;判决实验禁用级联"
+  ]
+}

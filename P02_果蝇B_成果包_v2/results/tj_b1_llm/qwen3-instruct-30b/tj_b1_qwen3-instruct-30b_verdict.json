@@ -1,0 +1,120 @@
+{
+  "model": "qwen3-instruct-30b",
+  "experiment": "TJ_B1_llm_three_arm",
+  "criteria": {
+    "directed_minus_sham_ci_excludes_zero_and_seeds_ge_7of10": "B1_DIRECTED_WINS",
+    "tost_equivalence_fail": "B1_EQUIV",
+    "seed_variance_swamps_arms": "B1_NOISE(计量学先行,禁滚动加注)",
+    "self_report_misclassification_rate_max": 0.2
+  },
+  "criteria_sha256": "b2b05c0d96c6136767c984829f34ab7b971c4470c632b3055f5c5a63d9872939",
+  "operationalization": {
+    "tost_delta": 1.0,
+    "tost_note": "20 题测试分的 1 题, 与试点规则『最小有意义差 naive-sham>=1』同源; 冻结 JSON 未固定",
+    "noise_ms_ratio": 10.0,
+    "noise_note": "种子均方 > 10x 臂均方; 冻结 JSON 未固定"
+  },
+  "directed_minus_sham": {
+    "mean": -0.4,
+    "sd": 2.988868236194653,
+    "ci95": [
+      -2.5381075337982044,
+      1.7381075337982046
+    ],
+    "ci_excludes_zero": false,
+    "n_seeds_positive": 3
+  },
+  "tost": {
+    "delta": 1.0,
+    "p1_gt_minus_delta": 0.2706756488228427,
+    "p2_lt_delta": 0.08634254481476948,
+    "equivalent_at_0.05": false
+  },
+  "variance_components": {
+    "ms_seed": 1.737037037037038,
+    "ms_arm": 1.233333333333331,
+    "seed_over_arm_ratio": 1.4084084084084119
+  },
+  "self_report_misclassification": {
+    "directed": {
+      "n_self_reported": 58,
+      "n_parse_fail": 42,
+      "n_misclassified": 1,
+      "rate": 0.017241379310344827
+    },
+    "naive": {
+      "n_self_reported": 93,
+      "n_parse_fail": 7,
+      "n_misclassified": 60,
+      "rate": 0.6451612903225806
+    },
+    "frozen_max": 0.2,
+    "directed_valid": true
+  },
+  "test_final_per_cond": {
+    "directed": [
+      8,
+      14,
+      8,
+      10,
+      15,
+      9,
+      9,
+      11,
+      10,
+      12
+    ],
+    "sham": [
+      11,
+      10,
+      12,
+      12,
+      11,
+      11,
+      11,
+      11,
+      12,
+      9
+    ],
+    "naive": [
+      12,
+      9,
+      13,
+      11,
+      11,
+      10,
+      9,
+      9,
+      10,
+      9
+    ]
+  },
+  "verdict": "B1_INCONCLUSIVE",
+  "verdict_if_valid": "B1_INCONCLUSIVE",
+  "G0": {
+    "gene_init_val": 4,
+    "gene_ref_val": 5,
+    "ref_not_better_than_init": false,
+    "token_usage": {
+      "llm_calls": 24,
+      "prompt_tokens": 7372,
+      "completion_tokens": 6655
+    }
+  },
+  "mutation_sort": {
+    "param": {
+      "n_accepted": 53,
+      "mean_gain": 1.0943396226415094
+    },
+    "arch": {
+      "n_accepted": 40,
+      "mean_gain": 0.0
+    }
+  },
+  "token_usage_total": {
+    "llm_calls": 4760,
+    "prompt_tokens": 2030241,
+    "completion_tokens": 1068504
+  },
+  "wall_min": 322.3
+}
