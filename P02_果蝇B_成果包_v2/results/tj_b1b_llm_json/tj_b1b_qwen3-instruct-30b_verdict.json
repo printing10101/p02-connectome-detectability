@@ -1,0 +1,164 @@
+{
+  "model": "qwen3-instruct-30b",
+  "experiment": "TJ_B1B_llm_jsonschema_30b",
+  "criteria": {
+    "directed_parse_fail_rate_over_0.05": "B1B_CHANNEL_FAIL (通道未按 schema 工作, 效应量只算不解释)",
+    "directed_minus_sham_ci_excludes_zero_and_seeds_ge_7of10": "B1B_DIRECTED_WINS",
+    "tost_equivalence_fail": "B1B_EQUIV",
+    "seed_variance_swamps_arms": "B1B_NOISE(计量学先行,禁滚动加注)",
+    "self_report_misclassification_rate_max": 0.2,
+    "self_report_misclassification_scope": "仅约束 directed 臂(与 B1 判决代码实现一致并在此显式声明); naive 臂自报标签不进入任何主统计, 其误分率仅作通道质量读数报告",
+    "else": "B1B_INCONCLUSIVE"
+  },
+  "criteria_sha256": "2f07deeb9c27cdda2ffd8559bb4c041be3301162bd96da1de445de7f0f57074a",
+  "operationalization": {
+    "tost_delta": 1.0,
+    "noise_ms_ratio": 10.0,
+    "parse_fail_rate_max": 0.05,
+    "misclass_scope": "directed only (naive 报告不约束), 与 B1 判决代码一致"
+  },
+  "channel": {
+    "directed_attempts": 100,
+    "directed_parse_fail": 37,
+    "directed_parse_fail_rate": 0.37
+  },
+  "directed_minus_sham": {
+    "mean": 1.0,
+    "sd": 1.1547005383792515,
+    "ci95": [
+      0.1739769955423579,
+      1.826023004457642
+    ],
+    "ci_excludes_zero": true,
+    "n_seeds_positive": 7
+  },
+  "tost": {
+    "delta": 1.0,
+    "p1_gt_minus_delta": 0.00019578527067506756,
+    "p2_lt_delta": 0.5,
+    "equivalent_at_0.05": false
+  },
+  "variance_components": {
+    "ms_seed": 3.540740740740739,
+    "ms_arm": 2.8000000000000016,
+    "seed_over_arm_ratio": 1.264550264550263
+  },
+  "self_report_misclassification": {
+    "directed": {
+      "n_self_reported": 63,
+      "n_parse_fail": 37,
+      "n_misclassified": 0,
+      "rate": 0.0
+    },
+    "naive": {
+      "n_self_reported": 94,
+      "n_parse_fail": 6,
+      "n_misclassified": 62,
+      "rate": 0.6595744680851063
+    },
+    "frozen_max": 0.2,
+    "directed_valid": true
+  },
+  "test_final_per_cond": {
+    "directed": [
+      13,
+      11,
+      13,
+      12,
+      11,
+      13,
+      14,
+      12,
+      13,
+      8
+    ],
+    "naive": [
+      11,
+      11,
+      12,
+      10,
+      11,
+      14,
+      11,
+      8,
+      13,
+      11
+    ],
+    "sham": [
+      11,
+      10,
+      12,
+      12,
+      11,
+      11,
+      11,
+      11,
+      12,
+      9
+    ]
+  },
+  "sham_reuse_provenance": [
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s1.json",
+      "sha256": "883598d0c94f9dc11f9be61935fa8c501da7c55a14c9d895275996dbcf597dda",
+      "test_final": 11
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s2.json",
+      "sha256": "45f5c411470855423043cad98d786fe39016fea45987b7c8e201605ddbe0e968",
+      "test_final": 10
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s3.json",
+      "sha256": "20941e37f7a93da8aca15c6b395be2e5ec4efd6fae758906bc0f6f48772ffbff",
+      "test_final": 12
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s4.json",
+      "sha256": "91576878f1820817e6147954808116dc4241eb378cf8802e813e394521ad8a8d",
+      "test_final": 12
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s5.json",
+      "sha256": "719afdcec8aebf3d178e512e4ca69030668394429dfae24949e4cd0b6e72028d",
+      "test_final": 11
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s6.json",
+      "sha256": "5640524eab405a411a6f8bf9196655c2ca3ab1a10612d25b4804c917f776dac2",
+      "test_final": 11
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s7.json",
+      "sha256": "c6289b8f6e1a3044965d08bd3ab65a5f68b485b1baee065f581476266b2e2f38",
+      "test_final": 11
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s8.json",
+      "sha256": "efc64bdbdc42d26f9b0cf7f03e0cd880542021534bad9fb76d539d2298fa6b1a",
+      "test_final": 11
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s9.json",
+      "sha256": "24a4eb8b7ffd9eae0f8bb18bcb2d2cfadfbe06c9d31df6e80b302d084e2d6ffa",
+      "test_final": 12
+    },
+    {
+      "file": "code\\results\\tj_b1_llm\\qwen3-instruct-30b\\events_sham_s10.json",
+      "sha256": "4f04f75d42884ea9a3ef5ceaa756cd47a87938b5db92c704fafd04b28ad2b635",
+      "test_final": 9
+    }
+  ],
+  "verdict": "B1B_CHANNEL_FAIL",
+  "verdict_if_valid": "B1B_CHANNEL_FAIL",
+  "format_probe": {
+    "parse_ok": 5,
+    "completion_tokens": 757
+  },
+  "token_usage_batch": {
+    "llm_calls": 3240,
+    "prompt_tokens": 1896176,
+    "completion_tokens": 886085
+  },
+  "wall_min": 436.2
+}

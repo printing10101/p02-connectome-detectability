@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "name": "TJ-B1c 变异通道 token 上限修复 (30B 档) · 预注册判据",
+    "version": "1.0-frozen",
+    "freeze_datetime_local": "2026-09-26T09:50:00+08:00",
+    "parent_documents": [
+      "TJ1-预注册判据-frozen-v1.0.json (2026-09-22, 不回改)",
+      "TJ-B1b-frozen-v1.0.json (2026-09-26 01:15, 不回改)"
+    ],
+    "registered_under": "论文B 注册修正案 v1.1 (2026-09-26) 第 C 节追加",
+    "motivation": "B1b 判决 B1B_CHANNEL_FAIL (directed 37/100 解析失败)。原始事件核查证实失败模式为 max_tokens=800 截断: 全部失败样本均为 schema 合法开头、在 new_gene 字段中途被掐断 (如 events_directed_s1.json g7/g8/g9); naive 臂基因较短仅 6/100 失败, 与截断假设一致。schema 受限解码本身有效 (格式探针 5/5, 63/100 完整解析)。B1c 仅提高变异调用 token 上限以完成通道修复。",
+    "design_of_record": "本文件 + code/scripts/tj_run_b1b_json.py (--tag b1c --mutate-max-tokens 2048)"
+  },
+  "experiment": "TJ_B1C_mutate_maxtok_30b",
+  "design": {
+    "base": "与 TJ-B1b 完全一致 (判据/臂/种子/任务集/评分/端点/模型文件/sham复用), 唯一差异如下",
+    "channel_change": "mutate_llm 的 max_tokens 800 -> 2048 (评分调用仍为 1280, 不变); response_format=json_schema 维持不变",
+    "why_2048": "directed 臂 new_gene 实测最长约 1.4k token (JSON 转义后), 2048 覆盖 P100 并留 25% 裕量; token 预算授权沿用 TJ1-B1执行授权.md (2026-09-22: 不设上限)",
+    "out_dir": "results/tj_b1b_llm_json_b1c/ (与 B1b 数据隔离)",
+    "format_probe": "同 B1b: 5 次带 schema 变异调用, >=4/5 可解析才进批"
+  },
+  "criteria": {
+    "directed_parse_fail_rate_over_0.05": "B1C_CHANNEL_FAIL (通道仍未修复, 效应量只算不解释)",
+    "directed_minus_sham_ci_excludes_zero_and_seeds_ge_7of10": "B1C_DIRECTED_WINS",
+    "tost_equivalence_fail": "B1C_EQUIV",
+    "seed_variance_swamps_arms": "B1C_NOISE(计量学先行,禁滚动加注)",
+    "self_report_misclassification_rate_max": 0.2,
+    "self_report_misclassification_scope": "仅约束 directed 臂 (与 B1/B1b 声明一致); naive 臂自报标签不进入任何主统计, 仅作通道质量读数",
+    "else": "B1C_INCONCLUSIVE"
+  },
+  "operationalization_note": "TOST delta=1.0/20题, NOISE 比值 10x, 误分率 0.2, 判决优先级 通道→WINS→EQUIV→NOISE→INCONCLUSIVE, 全部沿用 B1/B1b 操作化定义",
+  "interpretation_frame": {
+    "B1C_DIRECTED_WINS": "30B 档定向通道在通道修复后成立, B1 的 30B INCONCLUSIVE 判定为通道伪影 (B1b 的 +1.0 [0.17,1.83] 提示效应方向, 但该读数通道无效不作数)",
+    "B1C_INCONCLUSIVE/EQUIV/NOISE": "通道完全修复后 30B 档仍不可判定, 30B 档结论为实质性的",
+    "B1C_CHANNEL_FAIL": "截断假设被证伪, 通道失败另有原因 —— 记录原始输出再行诊断"
+  }
+}

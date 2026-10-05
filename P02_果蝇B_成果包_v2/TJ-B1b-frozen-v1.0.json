@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "name": "TJ-B1b 结构化输出通道重跑 (30B 档) · 预注册判据",
+    "version": "1.0-frozen",
+    "freeze_datetime_local": "2026-09-26T01:15:00+08:00",
+    "parent_document": "TJ1-预注册判据-frozen-v1.0.json (2026-09-22 冻结, 本文件不回改其任何内容)",
+    "registered_under": "论文B 注册修正案 v1.1 (2026-09-26) 第 B 节",
+    "motivation": "B1 批 30B 档 directed 臂 42/100 次变异输出解析失败(自由文本 JSON 通道), 判决 B1_INCONCLUSIVE 混杂了『通道失效』与『定向无效』两种解释。B1b 以受限解码(json_schema)修复通道后重跑该档, 检验 INCONCLUSIVE 是否为通道伪影。",
+    "design_of_record": "本文件 + code/scripts/tj_run_b1b_json.py 文档字符串; 差异清单以脚本头部为准"
+  },
+  "experiment": "TJ_B1B_llm_jsonschema_30b",
+  "design": {
+    "model": "qwen3-instruct-30b (Qwen3-30B-A3B-Instruct-2507-UD-Q4_K_XL.gguf, E:\\llama-cpp\\models, 与 B1 批同一文件)",
+    "arms": "directed + naive 由本批重跑; sham 复用 B1 批 30B 事件文件(程序化变异 + 温度0确定性评分, 逐文件 sha256 留痕), 不重跑",
+    "seeds": "1-10",
+    "generations": 10,
+    "tasks": "任务集 v2 (12 验证 + 20 测试), build_tasks() 种子 20260918, 与 B1 批逐字节同源",
+    "channel_change": "仅 mutate_llm 的 LLM 调用增加 response_format=json_schema (受限解码), schema 固定为 {mutation_type: enum[param,arch], intent: string, new_gene: string}; 评分调用(eval_gene)保持自由文本, 温度0; 变异调用温度0.8/800tok, 评分1280tok, 均与 B1 锁同",
+    "endpoint": "http://127.0.0.1:8080/v1 (E:\\llama-cpp\\model-proxy.js, 与 B1 同链路)",
+    "acceptance_rule": "验证分不退步方可接受; 测试分仅测终局; 逐 run 落盘断点续跑",
+    "format_probe": "全批开跑前执行 5 次带 schema 的变异调用(格式探针, L4 纪律), 解析成功须 >=4/5, 否则拒绝进批"
+  },
+  "criteria": {
+    "directed_parse_fail_rate_over_0.05": "B1B_CHANNEL_FAIL (通道未按 schema 工作, 效应量只算不解释)",
+    "directed_minus_sham_ci_excludes_zero_and_seeds_ge_7of10": "B1B_DIRECTED_WINS",
+    "tost_equivalence_fail": "B1B_EQUIV",
+    "seed_variance_swamps_arms": "B1B_NOISE(计量学先行,禁滚动加注)",
+    "self_report_misclassification_rate_max": 0.2,
+    "self_report_misclassification_scope": "仅约束 directed 臂(与 B1 判决代码实现一致并在此显式声明); naive 臂自报标签不进入任何主统计, 其误分率仅作通道质量读数报告",
+    "else": "B1B_INCONCLUSIVE"
+  },
+  "operationalization_note": "TOST delta=1.0/20题, NOISE 比值 10x, 判决优先级 WINS→EQUIV→NOISE→INCONCLUSIVE, 均沿用 B1 操作化定义并在 verdict JSON 内留痕",
+  "interpretation_frame": "B1B_DIRECTED_WINS ⇒ 30B 的 B1_INCONCLUSIVE 主要为通道伪影, 定向通道准则覆盖至 30B 档; B1B_INCONCLUSIVE/EQUIV/NOISE ⇒ 通道修复后仍不可判定, 30B 档的不可判定为实质结论; B1B_CHANNEL_FAIL ⇒ 受限解码在本栈不可用, 记录为工程边界"
+}

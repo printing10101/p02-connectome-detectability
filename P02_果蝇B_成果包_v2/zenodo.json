@@ -1,23 +1,33 @@
 {
-  "title": "TJ-D1 Code-Substrate Three-Arm Verdict Batch: Artifact Package (P02 companion)",
+  "title": "Artifact Package for 'Architecture Search in Self-Modifying Systems: The Scale-Decay Regularity of General Selection and Randomized Controlled Audit Discipline'",
   "creators": [
     {
       "name": "Li, Yulong",
-      "orcid": "0000-0006-0492-857X",
+      "orcid": "0009-0006-0492-857X",
       "affiliation": "Independent Researcher, Guiyang, China"
     }
   ],
-  "description": "Artifact package for the paper 'Architecture Search in Self-Modifying Systems: The Scale-Decay Regularity of General Selection and Randomized Controlled Audit Discipline' (Paper B) and its code-substrate verdict experiment TJ-D1. Contains: experiment scripts (skill-graph platform, scale scan, three-factor scan, GEP pipeline, three-arm batch runner), per-run immutable event logs, verdict JSONs with criteria SHA256, preregistration and authorization records, self-authored task deck (48 tasks with reference solutions, brute-force cross-checks, trap solutions, and deterministic test generators), and the frozen validation deck (8 validation + 13 test instances) with its SHA256. All local experiments reproduce on a single RTX 3080 Laptop 16GB; the API tier uses DeepSeek V4.1 Flash.",
+  "description": "Auditable artifact package for the manuscript 'Architecture Search in Self-Modifying Systems: The Scale-Decay Regularity of General Selection and Randomized Controlled Audit Discipline'. Contents: (1) a skill-graph / neuroevolution platform with the Experiment G five-condition batch, the preregistered scale-scan protocol v2 plus its post-hoc seed expansion, and the three-factor scan, all with per-seed and per-generation event logs; (2) two audit-trail variants retained on purpose - a cross-scale RNG-drift defect version caught by an internal hard self-check, and a fast-resume contamination control; (3) a GEP six-stage self-modification LLM pipeline: pilot batch, formalized validation run (G0 probes plus the S1-S4 pipeline checks), and state snapshots; (4) the preregistered three-arm verdict batch run on two base-model tiers (qwen3-instruct-30b and qwen3-14b) together with its post-hoc grammar-constrained extension batches TJ_B1b and TJ_B1C - covering per-event logs, verdict JSONs that each record the SHA256 of the frozen criteria file governing them, and the three independently frozen criteria files themselves. Every quantitative claim in the manuscript is cross-checkable against a named file in this package; MANIFEST.sha256 lists the SHA256 of every released file. All local experiments reproduce on a single RTX 3080 Laptop GPU; the two LLM tiers ran through a local llama-server inference chain.",
   "access_right": "open",
-  "license": "CC-BY-4.0 (data); MIT (code)",
+  "license": "cc-by-4.0",
   "upload_type": "dataset",
-  "keywords": ["self-evolving systems", "recursive self-improvement", "sham control", "preregistration", "LLM agents", "neuroevolution", "reproducibility"],
+  "keywords": [
+    "self-evolving systems",
+    "recursive self-improvement",
+    "architecture search",
+    "neutral-control audit",
+    "sham control",
+    "preregistration",
+    "LLM self-modification",
+    "neuroevolution",
+    "reproducibility"
+  ],
   "related_identifiers": [
     {
-      "identifier": "arXiv:2505.22954",
-      "relation": "references",
-      "resource_type": "preprint"
+      "identifier": "https://github.com/printing10101/p02-connectome-detectability",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
     }
   ],
-  "notes": "MANIFEST.sha256 lists SHA256 for every file; verify after download. Deck freeze: deck_frozen.json SHA256 2386a3437df9cb7fac93122574785367987b073a033cf8c3e8a708117a3b8016. Criteria freeze: TJ-D1-frozen-v1.0.json (SHA256 recorded at freeze time)."
+  "notes": "Code is released under MIT; data and logs under CC-BY-4.0. MANIFEST.sha256 lists the SHA256 of every released file and excludes only tool-state directories (.mimosa/) and bytecode caches (__pycache__/). Three independently frozen criteria files are included, and each SHA256 matches the criteria_sha256 recorded inside the verdict JSONs it governs: TJ1-预注册判据-frozen-v1.0.json = b2b05c0d96c6136767c984829f34ab7b971c4470c632b3055f5c5a63d9872939; TJ-B1b-frozen-v1.0.json = 2f07deeb9c27cdda2ffd8559bb4c041be3301162bd96da1de445de7f0f57074a; TJ-B1C-frozen-v1.0.json = f83ff0b178c8d301ccc1ac29d3af0e25256d71d0fd70eeb02f922c8fb2c73bec. The manuscript DOI is to be assigned at publication; this package is the artifact, not a preprint of the manuscript."
 }
